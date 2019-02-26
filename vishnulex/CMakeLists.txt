@@ -7,16 +7,16 @@
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-source_group(\\ FILES CMakeLists.txt)
+source_group( \\ FILES CMakeLists.txt )
 
-list(APPEND CPPCHECK_EXTRA_ARGS
-  --suppress=*:${CMAKE_CURRENT_BINARY_DIR}/*_generated.h)
+list( APPEND CPPCHECK_EXTRA_ARGS
+  --suppress=*:${CMAKE_CURRENT_BINARY_DIR}/*_generated.h )
 
-include(zerobufGenerateCxx)
-set(__outdir ${PROJECT_BINARY_DIR}/include/vishnulex)
+include( zerobufGenerateCxx)
+set( __outdir ${PROJECT_BINARY_DIR}/include/vishnulex )
 
-set(VISHNULEX_DATA_DIR ${__outdir})
-set(VISHNULEX_DATA_FBS 
+set( VISHNULEX_DATA_DIR ${__outdir} )
+set( VISHNULEX_DATA_FBS 
   ChangeColorGroup.fbs
   ChangeNameGroup.fbs
   DestroyGroup.fbs
@@ -26,25 +26,29 @@ set(VISHNULEX_DATA_FBS
   SyncTransferFunc.fbs
 )
 
-zerobuf_generate_cxx(VISHNULEX_DATA ${VISHNULEX_DATA_DIR} ${VISHNULEX_DATA_FBS})
+zerobuf_generate_cxx( VISHNULEX_DATA ${VISHNULEX_DATA_DIR} ${VISHNULEX_DATA_FBS} )
 
-set(VISHNULEX_PUBLIC_HEADERS
+set( VISHNULEX_PUBLIC_HEADERS
   ${COMMON_INCLUDES}
   ${VISHNULEX_DATA_HEADERS}
 )
 
-set(VISHNULEX_HEADERS )
+set( VISHNULEX_HEADERS )
 
-set(VISHNULEX_SOURCES
+set( VISHNULEX_SOURCES
   ${COMMON_SOURCES}
   ${VISHNULEX_DATA_SOURCES}
 )
-set(VISHNULEX_LINK_LIBRARIES ZeroEQ ZeroBuf)
+set( VISHNULEX_LINK_LIBRARIES 
+  ZeroEQ
+  ZeroBuf
+)
 
-if(MSVC)
-  list(APPEND VISHNULEX_LINK_LIBRARIES Ws2_32)
-endif()
+if( MSVC )
+  list( APPEND VISHNULEX_LINK_LIBRARIES Ws2_32 )
+endif( MSVC )
 
 set( PROJECT_INCLUDE_NAME vishnulex )
-add_definitions(-DZEROEQ_SHARED)
-common_library(vishnulex)
+add_definitions( -DZEROEQ_SHARED )
+
+common_library(VishnuLex)

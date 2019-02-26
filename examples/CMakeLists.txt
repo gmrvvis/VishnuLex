@@ -19,11 +19,11 @@ include_directories( ../vishnulex )
 
 
 set( VISHNULEXPUBLISHER_LINK_LIBRARIES
-  vishnulex
+  VishnuLex
 )
 
 set( VISHNULEXSUBSCRIBER_LINK_LIBRARIES
-  vishnulex
+  VishnuLex
 )
 
 common_application( vishnulexPublisher )

@@ -8,14 +8,12 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 cmake_minimum_required(VERSION 3.1)
-
-# vishnulex project and version
-project(vishnulex VERSION 0.1.0)
 set( PROJECT_VERSION_MAJOR "0" )
 set( PROJECT_VERSION_MINOR "1" )
 set( PROJECT_VERSION_PATCH "0" )
 set( PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH} )
-set( vishnulex_VERSION_ABI 1 )
+project( VishnuLex VERSION ${PROJECT_VERSION} )
+set( VishnuLex_VERSION_ABI 1 )
 
 # Disable in source building
 if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
@@ -44,7 +42,7 @@ configure_file(
 # description
 set( VISHNULEX_DESCRIPTION "Vishnu Lex" )
 set( VISHNULEX_MAINTAINER "Gonzalo Bayo Martinez <gonzalo.bayo@urjc.es>" )
-set( VISHNULEX_LICENSE "LGPLv3" )
+set( VISHNULEX_LICENSE "MIT" )
 set( COMMON_PROJECT_DOMAIN gmrv.es )
 
 include( Common )
@@ -62,11 +60,6 @@ add_subdirectory( examples )
 if( MSVC )
   # Allow warnings
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
-  
-  # Set vishnulex as startup project on Visual Studio, CMake v3.6
-  if( CMAKE_VERSION VERSION_GREATER 3.6 )
-    set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT vishnulex )
-  endif( )
   
   # Excluded because they fail on win compilations
   set(EXCLUDED_FROM_BUILD
