@@ -17,8 +17,8 @@ VishnuLex has been successfully built and tested on Ubuntu 18.04 / Windows 10.
 The following steps are for build:
 
 ```bash
-$ git clone git@gitlab.gmrv.es:cbbsp1/vishnulex.git
-$ mkdir vishnulex/build && cd vishnulex/build
+$ git clone https://github.com/gmrvvis/VishnuLex.git
+$ mkdir VishnuLex/build && cd VishnuLex/build
 $ cmake .. [-DCLONE_SUBPROJECTS=ON]
 ```
 
